@@ -26,7 +26,7 @@ describe("User", () => {
         username: 'danilo',
     };
 
-    test("should be create one user and retrive", async () => {
+    test("should be create one user and retrive this user", async () => {
         // given - dado
         const userToBeCreatedDTO = new CreateUserDTO(requestBodyUserToBeCreated);
 
