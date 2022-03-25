@@ -1,7 +1,18 @@
 import { validate } from "uuid";
+import { User } from "../src/Entities/User";
+import { IUserRepository } from "../src/Repository/IUserRepository";
 import { CreateOneUSer } from "../src/useCases/createUser/CreateOneUSer";
 import { CreateUserDTO } from "../src/useCases/createUser/CreateUserDTO";
 import { TestDoubleUserRepository } from "./stub/TestDoubleUserRepository";
+
+
+export class RetriveOneUser{
+    constructor(private repository:IUserRepository){};
+
+    async by(id:string):Promise<User>{
+        return await this.repository.findById(id);
+    }
+}
 
 describe("User", () => {
 
@@ -21,10 +32,11 @@ describe("User", () => {
 
         // when - quando
         const createdUserId = await createOneUser.with(userToBeCreatedDTO);
-        const retrievedUser = retriveOneUser.by(createdUserId);
+        const retrievedUser = await retriveOneUser.by(createdUserId);
 
         // then - entao
         expect(validate(createdUserId)).toBeTruthy();
         expect(retrievedUser).toMatchObject(userToBeCreatedDTO);
+        expect(retrievedUser.id).toEqual(createdUserId);
     });
 });

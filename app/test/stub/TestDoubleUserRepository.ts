@@ -3,11 +3,11 @@ import { IUserRepository } from "../../src/Repository/IUserRepository";
 
 
 export class TestDoubleUserRepository implements IUserRepository {
-    private user: User[];
+    private users: User[];
     private static INSTANCE: TestDoubleUserRepository;
 
     private constructor() {
-        this.user = [];
+        this.users = [];
     }
 
     public static getInstance(): TestDoubleUserRepository {
@@ -18,8 +18,16 @@ export class TestDoubleUserRepository implements IUserRepository {
     }
 
     async create(data: User): Promise<string> {
-        await this.user.push(data);
+        await this.users.push(data);
         return data.id;
+    }
+
+    async findById(id:string):Promise<User>{
+        const userExist =  this.users.find((user)=> user.id === id);
+        if(!userExist){
+            throw new Error("User not found with this id")
+        }
+        return userExist;
     }
 
 }
