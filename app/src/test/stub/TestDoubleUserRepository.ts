@@ -1,5 +1,5 @@
-import { User } from "../Entities/User";
-import { IUserRepository } from "./IUserRepository";
+import { User } from "../../Entities/User";
+import { IUserRepository } from "../../Repository/IUserRepository";
 
 
 export class TestDoubleUserRepository implements IUserRepository {
