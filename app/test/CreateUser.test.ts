@@ -1,6 +1,6 @@
 import { validate } from "uuid";
-import { CreateOneUSer } from "../useCases/createUser/CreateOneUSer";
-import { CreateUserDTO } from "../useCases/createUser/CreateUserDTO";
+import { CreateOneUSer } from "../src/useCases/createUser/CreateOneUSer";
+import { CreateUserDTO } from "../src/useCases/createUser/CreateUserDTO";
 import { TestDoubleUserRepository } from "./stub/TestDoubleUserRepository";
 
 describe("User", () => {
