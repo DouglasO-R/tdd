@@ -1,18 +1,25 @@
-import { CreateOneUSer } from "../useCases/CreateOneUSer";
-import { CreateUserDTO } from "../useCases/CreateUserDTO";
+import { CreateOneUSer } from "../useCases/createUser/CreateOneUSer";
+import { CreateUserDTO } from "../useCases/createUser/CreateUserDTO";
+import { TestDoubleUserRepository } from "./stub/TestDoubleUserRepository";
 
 describe("User", () => {
 
+    // setup
+    const repository = TestDoubleUserRepository.getInstance();
+    const createOneUser = new CreateOneUSer(repository);
+
     test("should be create one user", async () => {
+        // given - dado
         const requestBodyUserToBeCreated = {
             name: 'Danilo Vieira',
             username: 'danilo',
         };
-        const UserToBeCreatedDTO = new CreateUserDTO(requestBodyUserToBeCreated);
 
-        const createOneUser = new CreateOneUSer();
+        // when - quando
+        const UserToBeCreatedDTO = new CreateUserDTO(requestBodyUserToBeCreated);
         const createdUser = await createOneUser.with(UserToBeCreatedDTO);
 
+        // then - entao
         expect(createdUser).toMatchObject(UserToBeCreatedDTO);
         expect(createdUser.id).toBe("uuid-v4");
     });
