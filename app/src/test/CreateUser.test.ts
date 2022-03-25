@@ -17,10 +17,9 @@ describe("User", () => {
 
         // when - quando
         const UserToBeCreatedDTO = new CreateUserDTO(requestBodyUserToBeCreated);
-        const createdUser = await createOneUser.with(UserToBeCreatedDTO);
+        const createdUserId = await createOneUser.with(UserToBeCreatedDTO);
 
         // then - entao
-        expect(createdUser).toMatchObject(UserToBeCreatedDTO);
-        expect(createdUser.id).toBe("uuid-v4");
+        expect(createdUserId).toBe("uuid-v4");
     });
 });
