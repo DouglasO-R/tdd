@@ -8,19 +8,23 @@ describe("User", () => {
     // setup
     const repository = TestDoubleUserRepository.getInstance();
     const createOneUser = new CreateOneUSer(repository);
+    const retriveOneUser = new RetriveOneUser(repository);
 
-    test("should be create one user", async () => {
+    const requestBodyUserToBeCreated = {
+        name: 'Danilo Vieira',
+        username: 'danilo',
+    };
+
+    test("should be create one user and retrive", async () => {
         // given - dado
-        const requestBodyUserToBeCreated = {
-            name: 'Danilo Vieira',
-            username: 'danilo',
-        };
+        const userToBeCreatedDTO = new CreateUserDTO(requestBodyUserToBeCreated);
 
         // when - quando
-        const UserToBeCreatedDTO = new CreateUserDTO(requestBodyUserToBeCreated);
-        const createdUserId = await createOneUser.with(UserToBeCreatedDTO);
+        const createdUserId = await createOneUser.with(userToBeCreatedDTO);
+        const retrievedUser = retriveOneUser.by(createdUserId);
 
         // then - entao
         expect(validate(createdUserId)).toBeTruthy();
+        expect(retrievedUser).toMatchObject(userToBeCreatedDTO);
     });
 });
