@@ -1,18 +1,9 @@
 import { validate } from "uuid";
-import { User } from "../src/Entities/User";
-import { IUserRepository } from "../src/Repository/IUserRepository";
 import { CreateOneUSer } from "../src/useCases/createUser/CreateOneUSer";
 import { CreateUserDTO } from "../src/useCases/createUser/CreateUserDTO";
+import { RetriveOneUser } from "../src/useCases/retrieveOneUser/RetriveOneUser";
 import { TestDoubleUserRepository } from "./stub/TestDoubleUserRepository";
 
-
-export class RetriveOneUser{
-    constructor(private repository:IUserRepository){};
-
-    async by(id:string):Promise<User>{
-        return await this.repository.findById(id);
-    }
-}
 
 describe("User", () => {
 
