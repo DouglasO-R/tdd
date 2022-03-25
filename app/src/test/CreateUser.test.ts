@@ -1,3 +1,4 @@
+import { validate } from "uuid";
 import { CreateOneUSer } from "../useCases/createUser/CreateOneUSer";
 import { CreateUserDTO } from "../useCases/createUser/CreateUserDTO";
 import { TestDoubleUserRepository } from "./stub/TestDoubleUserRepository";
@@ -20,6 +21,6 @@ describe("User", () => {
         const createdUserId = await createOneUser.with(UserToBeCreatedDTO);
 
         // then - entao
-        expect(createdUserId).toBe("uuid-v4");
+        expect(validate(createdUserId)).toBeTruthy();
     });
 });

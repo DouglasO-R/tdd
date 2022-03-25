@@ -4,15 +4,15 @@ import { TCreateUserDTO } from "./TCreateUserDTO";
 
 
 export class CreateOneUSer {
-    private repository:IUserRepository;
+    private repository: IUserRepository;
 
-    constructor(repository:IUserRepository){
+    constructor(repository: IUserRepository) {
         this.repository = repository;
     }
 
-    async with({ name, username }: TCreateUserDTO): Promise<User> {
-        const user = await new User({ name, username });
-        const createdUser = await this.repository.create(user);
-        return createdUser;
+    async with({ name, username }: TCreateUserDTO): Promise<string> {
+        const user = await new User(name, username);
+        const createdUserId = await this.repository.create(user);
+        return createdUserId;
     }
 }

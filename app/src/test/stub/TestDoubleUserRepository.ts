@@ -17,9 +17,9 @@ export class TestDoubleUserRepository implements IUserRepository {
         return TestDoubleUserRepository.INSTANCE;
     }
 
-    async create(data: User): Promise<User> {
+    async create(data: User): Promise<string> {
         await this.user.push(data);
-        return data;
+        return data.id;
     }
 
 }

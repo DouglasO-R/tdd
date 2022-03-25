@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1648239541896" clover="3.2.0">
-  <project timestamp="1648239541896" name="All files">
-    <metrics statements="68" coveredstatements="68" conditionals="8" coveredconditionals="7" methods="7" coveredmethods="7" elements="83" coveredelements="82" complexity="0" loc="68" ncloc="68" packages="3" files="4" classes="4"/>
+<coverage generated="1648241550964" clover="3.2.0">
+  <project timestamp="1648241550965" name="All files">
+    <metrics statements="69" coveredstatements="69" conditionals="8" coveredconditionals="7" methods="7" coveredmethods="7" elements="84" coveredelements="83" complexity="0" loc="69" ncloc="69" packages="3" files="4" classes="4"/>
     <package name="Entities">
-      <metrics statements="15" coveredstatements="15" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <metrics statements="16" coveredstatements="16" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="User.ts" path="/home/douglasor/Documentos/Node/typescript-study/MyProject-2/app/src/Entities/User.ts">
-        <metrics statements="15" coveredstatements="15" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <metrics statements="16" coveredstatements="16" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -14,13 +14,14 @@
         <line num="6" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="10" count="1" type="cond" truecount="0" falsecount="1"/>
-        <line num="11" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="11" count="1" type="cond" truecount="0" falsecount="1"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
       </file>
     </package>
     <package name="test.stub">
